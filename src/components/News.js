@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Newsitems from './Newsitems'
 import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from './Spinner';
-const API_KEY='23dc71aa3f384611a9bc741c4cdbb122'
+const API_KEY='d8a507d66d9946f5a4e91cc6e5ff604f'
 
 const News = (props) => {
   document.title=`NewsHub - ${props.type}`
@@ -29,7 +29,6 @@ const News = (props) => {
 
 
   const fetchMoreData = () => {
-    console.log('entered fetchMore')
     fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${props.type}&apiKey=${API_KEY}&page=${pageNo + 1}&pageSize=${pageSize}`)
       .then(res => res.json())
       .then((data) => {
@@ -40,6 +39,7 @@ const News = (props) => {
 
 
   };
+  
   return (
     <>
       <div className="mainsecNews">
@@ -55,9 +55,9 @@ const News = (props) => {
       >
         <div className="newsitems">
           {
-            news.map((elem) => {
+            news.map((elem,index) => {
               return (
-                <Newsitems title={elem.title} description={elem.description} img={elem.urlToImage} link={elem.url} />
+                <Newsitems key={index} title={elem.title} description={elem.description} img={elem.urlToImage} link={elem.url} />
                 )
               })
           }

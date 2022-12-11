@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import '../style/style.css'
-const API_KEY='23dc71aa3f384611a9bc741c4cdbb122'
+const API_KEY='d8a507d66d9946f5a4e91cc6e5ff604f'
 const NewsHedding = () => {
   const [news, setNews] = useState([{title:'this is title',urlToImage:'image',description:'this is description',url:'rohannikale.com'}])
   useEffect(() => {
@@ -29,7 +29,7 @@ const NewsHedding = () => {
             news.map((elem, index) => {
               if (index >= 1) {
                 return (
-                  <div className="box" style={{ backgroundImage: `url(${elem.urlToImage})` }}><h3><a href={elem.url}>{elem.title}</a></h3></div>
+                  <div className="box" key={index} style={{ backgroundImage: `url(${elem.urlToImage})` }}><h3><a href={elem.url}>{elem.title}</a></h3></div>
                 )
               }
             })

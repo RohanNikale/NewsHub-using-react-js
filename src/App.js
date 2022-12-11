@@ -1,8 +1,8 @@
 import Navbar from './components/Navbar';
 import './style/style.css'
 import News from './components/News';
-import NewsHedding from './components/NewsHedding';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from './components/Home';
 function App() {
   return (
     <>
@@ -11,9 +11,8 @@ function App() {
     <div className="newsComponente">
       <h2>Welcome to NewsHub.com</h2>
     </div>
-    <NewsHedding/>
     <Routes>
-    <Route path='/' element={<News key='general' type="general"/>}/>
+    <Route path='/' element={<Home/>}/>
     <Route path='/sports' element={<News key='Sports' type="Sports"/>}/>
     <Route path='/technology' element={<News key='technology' type="technology"/>}/>
     <Route path='/business' element={<News key='business' type="business"/>}/>
